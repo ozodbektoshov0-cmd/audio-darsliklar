@@ -10,57 +10,71 @@
     
     <style>
         :root {
-            --bg-deep: #0b1a2e;
-            --bg-surface: #112240;
-            --bg-card: rgba(21, 45, 82, 0.85);
-            --gold: #ffd700;
+            /* TV va kompyuter uchun to'liq qorong'i ranglar - yarim shaffoflik yo'q */
+            --bg-deep: #000811;
+            --bg-surface: #001122;
+            --bg-card: #002244;
+            --bg-card-alt: #003366;
+            --gold: #ffcc00;
             --silver: #e0e7ff;
             --snow: #ffffff;
             --text-pure: #ffffff;
-            --text-dim: #b8c9e6;
-            --border-soft: 1px solid rgba(255, 215, 0, 0.2);
+            --text-dim: #aaccff;
+            --border-gold: 1px solid rgba(255, 204, 0, 0.6);
+            --shadow-gold: 0 0 30px rgba(255, 204, 0, 0.4);
             --transition-fast: all 0.4s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             color: var(--text-pure);
-            overflow-x: hidden;
+            background-color: var(--bg-deep) !important;
             position: relative;
             min-height: 100vh;
-            background-color: #000;
+        }
+
+        /* TV va katta ekranlar uchun to'liq ekran fon */
+        @media screen and (min-width: 1024px) {
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-size: cover !important;
+                background-position: center center !important;
+                background-repeat: no-repeat !important;
+                z-index: -2;
+                opacity: 0.3; /* TVda ham yaxshi ko'rinish uchun ozgina shaffof */
+            }
         }
 
         .background-slider {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2;
+            display: none; /* TV uchun yashirdik, body::before ishlatamiz */
         }
 
         .slide {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 3s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
+            display: none;
         }
 
         .snowflake {
-            position: absolute;
+            position: fixed;
             top: -30px;
             color: var(--snow);
             font-size: 1.2em;
             pointer-events: none;
             animation: fall linear infinite;
-            opacity: 0.7;
-            z-index: 10;
+            opacity: 0.6;
+            z-index: 100;
         }
 
         @keyframes fall {
@@ -70,24 +84,27 @@
         .container {
             display: flex;
             min-height: 100vh;
+            position: relative;
+            z-index: 1;
         }
 
         .sidebar {
             width: 280px;
-            background: rgba(11, 26, 46, 0.95);
-            backdrop-filter: blur(12px);
-            border-right: var(--border-soft);
+            background: var(--bg-card) !important;
+            border-right: var(--border-gold);
             display: flex;
             flex-direction: column;
             z-index: 1000;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow-gold);
+            backdrop-filter: none; /* TVda muammo bermaydi */
         }
 
         .brand-section {
             padding: 40px 20px;
             text-align: center;
-            border-bottom: var(--border-soft);
+            border-bottom: var(--border-gold);
             position: relative;
+            background: var(--bg-surface);
         }
 
         .brand-section::before {
@@ -98,7 +115,7 @@
             width: 100%;
             font-size: 1.4rem;
             animation: sparkle 3s infinite;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         @keyframes sparkle {
@@ -113,7 +130,8 @@
             border: 5px solid var(--gold);
             padding: 5px;
             margin-bottom: 15px;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+            box-shadow: var(--shadow-gold);
+            background: var(--bg-surface);
         }
 
         .brand-section h2 {
@@ -121,7 +139,7 @@
             font-size: 1.2rem;
             color: var(--gold);
             letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
         }
 
         .new-year-greeting {
@@ -141,6 +159,7 @@
             flex-grow: 1;
             padding: 20px 0;
             overflow-y: auto;
+            background: var(--bg-card);
         }
 
         .nav-link {
@@ -155,13 +174,13 @@
         }
 
         .nav-link:hover {
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(255, 204, 0, 0.2);
             color: var(--text-pure);
             border-left: 4px solid var(--gold);
         }
 
         .nav-link.active {
-            background: rgba(255, 215, 0, 0.2);
+            background: rgba(255, 204, 0, 0.25);
             color: var(--gold);
             border-left: 4px solid var(--gold);
         }
@@ -172,6 +191,7 @@
             padding: 40px;
             position: relative;
             z-index: 5;
+            background: rgba(0, 8, 17, 0.95); /* Engil shaffoflik faqat main uchun */
         }
 
         .mobile-header {
@@ -181,9 +201,8 @@
             left: 0;
             width: 100%;
             height: 80px;
-            background: rgba(11, 26, 46, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--gold);
+            background: var(--bg-card) !important;
+            border-bottom: var(--border-gold);
             z-index: 2001;
             align-items: center;
             justify-content: space-between;
@@ -195,6 +214,7 @@
             height: 50px;
             border-radius: 50%;
             border: 3px solid var(--gold);
+            background: var(--bg-surface);
         }
 
         .mobile-header .title {
@@ -203,7 +223,7 @@
             color: var(--gold);
             text-align: center;
             flex: 1;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
         }
 
         .mobile-header .greeting {
@@ -236,11 +256,11 @@
         .page-header h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 3.2rem;
-            background: linear-gradient(to right, #ffd700, #ffffff, #ffd700);
+            background: linear-gradient(to right, #ffcc00, #ffffff, #ffcc00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
         }
 
         .new-year-big {
@@ -264,15 +284,15 @@
         }
 
         .feature-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(15px);
+            background: var(--bg-card-alt) !important;
             border-radius: 25px;
             padding: 40px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: var(--border-gold);
             transition: var(--transition-fast);
             text-align: center;
             position: relative;
             overflow: hidden;
+            backdrop-filter: none; /* TV uchun o'chirildi */
         }
 
         .feature-card::before {
@@ -283,13 +303,14 @@
             transform: translateX(-50%);
             font-size: 1.8rem;
             color: var(--gold);
-            opacity: 0.4;
+            opacity: 0.6;
         }
 
         .feature-card:hover {
             transform: translateY(-20px) scale(1.03);
             border-color: var(--gold);
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.3);
+            box-shadow: var(--shadow-gold);
+            background: var(--bg-card);
         }
 
         .feature-card h3 {
@@ -297,7 +318,7 @@
             color: var(--gold);
             font-size: 1.6rem;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 0 20px var(--gold);
         }
 
         .action-button {
@@ -316,7 +337,7 @@
             cursor: pointer;
             background: linear-gradient(45deg, var(--gold), #ffed4e, var(--gold));
             color: #000;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
             text-decoration: none;
         }
 
@@ -327,7 +348,7 @@
 
         .action-button:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.6);
         }
 
         .social-footer-panel {
@@ -350,27 +371,31 @@
             color: white;
             font-size: 1.8rem;
             transition: var(--transition-fast);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
             text-decoration: none;
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
         }
 
         .social-btn:hover {
             transform: scale(1.3) rotate(15deg);
+            border-color: var(--gold);
         }
 
         .btn-telegram { background: #0088cc; }
         .btn-youtube { background: #ff0000; }
-        .btn-instagram { background: radial-gradient(circle at 30% 107%, #fdf497, #fd5949, #d6249f, #285aeb); }
+        .btn-instagram { background: linear-gradient(45deg, #fdf497, #fd5949, #d6249f, #285aeb); }
         .btn-tiktok { background: #000; }
 
         .footer {
             text-align: center;
             padding: 60px 0;
             color: var(--text-dim);
-            border-top: var(--border-soft);
+            border-top: var(--border-gold);
             margin-top: 50px;
             position: relative;
             z-index: 5;
+            background: var(--bg-surface);
         }
 
         .new-year-wish {
@@ -378,9 +403,10 @@
             color: var(--gold);
             font-family: 'Montserrat', sans-serif;
             margin: 20px 0;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
         }
 
+        /* Responsive dizayn */
         @media (max-width: 900px) {
             .container {
                 flex-direction: column;
@@ -400,8 +426,10 @@
                 left: 0;
                 width: 100%;
                 height: auto;
-                border-top: var(--border-soft);
+                border-top: var(--border-gold);
                 z-index: 2000;
+                background: var(--bg-card) !important;
+                flex-direction: row;
             }
 
             .nav-menu {
@@ -409,6 +437,7 @@
                 justify-content: space-around;
                 padding: 10px 0;
                 overflow-x: auto;
+                width: 100%;
             }
 
             .nav-link {
@@ -416,10 +445,17 @@
                 padding: 12px 8px;
                 font-size: 0.75rem;
                 min-width: 70px;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+            }
+
+            .nav-link.active {
+                border-bottom-color: var(--gold);
             }
 
             .main-stage {
-                padding: 100px 20px 100px 20px;
+                padding: 100px 20px 120px 20px;
+                background: var(--bg-deep) !important;
             }
 
             .social-footer-panel {
@@ -442,10 +478,26 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* TV uchun maxsus sozlamalar */
+        @media screen and (min-width: 1920px) and (min-height: 1080px) {
+            .sidebar {
+                width: 350px;
+            }
+            
+            .main-stage {
+                padding: 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 4.5rem;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Fon slayderi TV uchun yashirin -->
     <div class="background-slider">
         <div class="slide active" style="background-image: url('https://i.postimg.cc/FHJCDWTg/1477386-original-3240x7184-1766822199.jpg');"></div>
         <div class="slide" style="background-image: url('https://i.postimg.cc/J4SPD3RC/1475561-original-3240x7184-1766822212.jpg');"></div>
@@ -453,12 +505,7 @@
         <div class="slide" style="background-image: url('https://i.postimg.cc/85yb1Myg/1480845-original-1760x2464-1766822364.png');"></div>
     </div>
 
-    <header class="mobile-header">
-        <img src="https://i.postimg.cc/fbNBzxNM/IMG-20251227-141411.png" alt="Toshov Ozodbek">
-        <div class="title">Audio Darsliklar 2026</div>
-        <div class="greeting">Yangi yil muborak! 🎄✨</div>
-    </header>
-
+    <!-- Qor parchalari -->
     <script>
         function createSnowflake() {
             const snowflake = document.createElement('div');
@@ -479,19 +526,14 @@
         setInterval(createSnowflake, 600);
     </script>
 
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
+    <!-- Mobil header -->
+    <header class="mobile-header">
+        <img src="https://i.postimg.cc/fbNBzxNM/IMG-20251227-141411.png" alt="Toshov Ozodbek">
+        <div class="title">Audio Darsliklar 2026</div>
+        <div class="greeting">Yangi yil muborak! 🎄✨</div>
+    </header>
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        setInterval(nextSlide, 8000);
-    </script>
-
+    <!-- Ijtimoiy tarmoqlar -->
     <div class="social-footer-panel">
         <a href="https://t.me/Audio_Darsliklar_2026" target="_blank" class="social-btn btn-telegram"><i class="fab fa-telegram-plane"></i></a>
         <a href="https://www.youtube.com/@audiodarsliklar2025" target="_blank" class="social-btn btn-youtube"><i class="fab fa-youtube"></i></a>
@@ -499,6 +541,7 @@
         <a href="https://www.tiktok.com/@ozodbek.toshov_uz" target="_blank" class="social-btn btn-tiktok"><i class="fab fa-tiktok"></i></a>
     </div>
 
+    <!-- Asosiy kontent -->
     <div class="container">
         <aside class="sidebar">
             <div class="brand-section">
@@ -521,7 +564,7 @@
         </aside>
 
         <main class="main-stage">
-
+            <!-- Barcha sahifalar bir xil -->
             <section id="home" class="page-content active">
                 <div class="page-header">
                     <h1>Xush kelibsiz!</h1>
@@ -537,6 +580,7 @@
                 </div>
             </section>
 
+            <!-- Qolgan sahifalar (5-11 sinf) - bir xil struktura -->
             <section id="sinf5" class="page-content">
                 <div class="page-header"><h1>5-sinf Adabiyoti</h1></div>
                 <div class="content-grid">
@@ -554,6 +598,7 @@
                     </div>
                 </div>
             </section>
+
 
             <section id="sinf6" class="page-content">
                 <div class="page-header"><h1>6-sinf Adabiyoti</h1></div>
@@ -644,16 +689,16 @@
                     </div>
                 </div>
             </section>
-
+            
             <footer class="footer">
                 <p class="new-year-wish">Yangi 2026-yil muborak bo'lsin! 🎊✨</p>
                 <p>&copy; 2026 Audio Darsliklar 2026</p>
                 <span style="color:var(--gold); font-weight:900; font-size:1.4rem;">Toshov Ozodbek</span>
             </footer>
-
         </main>
     </div>
 
+    <!-- Navigatsiya skripti -->
     <script>
         function showPage(e, id) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
@@ -661,6 +706,23 @@
             document.getElementById(id).classList.add('active');
             if (e) e.currentTarget.classList.add('active');
             window.scrollTo(0, 0);
+        }
+
+        // TV uchun fon almashtirish
+        let currentBg = 1;
+        const bgImages = [
+            'https://i.postimg.cc/FHJCDWTg/1477386-original-3240x7184-1766822199.jpg',
+            'https://i.postimg.cc/J4SPD3RC/1475561-original-3240x7184-1766822212.jpg',
+            'https://i.postimg.cc/Dws5qWzj/1467512-original-736x1308-1766822244.jpg',
+            'https://i.postimg.cc/85yb1Myg/1480845-original-1760x2464-1766822364.png'
+        ];
+
+        if (window.innerWidth >= 1024) {
+            setInterval(() => {
+                const body = document.body;
+                body.style.setProperty('--bg-image', `url(${bgImages[currentBg]})`);
+                currentBg = (currentBg + 1) % bgImages.length;
+            }, 8000);
         }
     </script>
 </body>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Darsliklar 2026 | O'zbek Adabiyoti Audio va PDF</title>
+    <meta name="description" content="Audio Darsliklar 2026 – O‘zbek adabiyoti darsliklarining eng sifatli audio va PDF versiyalari. 5-11 sinflar uchun bepul resurslar. Yangi yil muborak!">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --primary-dark: #e55a00;
+            --secondary: #00c853;
+            --accent: #ffd600;
+            --bg-dark: #0a0a0a;
+            --bg-card: #111111;
+            --bg-surface: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b0bec5;
+            --text-muted: #78909c;
+            --border: rgba(255, 107, 0, 0.2);
+            --radius-lg: 32px;
+            --radius-md: 20px;
+            --radius-sm: 12px;
+            --shadow: 0 20px 40px rgba(0,0,0,0.4);
+            --shadow-sm: 0 10px 20px rgba(0,0,0,0.3);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Qor effekti - mobil uchun kamaytirildi */
+        .snowflake {
+            position: fixed;
+            top: -20px;
+            color: #fff;
+            font-size: 1.2em;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 9999;
+            opacity: 0.6;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Desktopda ko'proq qor */
+        @media (min-width: 768px) {
+            .snowflake {
+                font-size: 1.5em;
+                opacity: 0.8;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,107,0,0.08), transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff6b00, #ffd600, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255,107,0,0.5); }
+            to { text-shadow: 0 0 40px rgba(255,107,0,0.8); }
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        /* Mobil uchun matn o'lchami */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+                padding: 0 10px;
+            }
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 60px 0;
+        }
+
+        .badge {
+            background: rgba(255,107,0,0.15);
+            border: 2px solid var(--primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .badge {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 80px;
+        }
+
+        .btn {
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            min-width: 280px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(255,107,0,0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 3px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-8px);
+        }
+
+        @media (max-width: 768px) {
+            .btn {
+                padding: 16px 40px;
+                font-size: 1.2rem;
+                min-width: 240px;
+            }
+            .cta-buttons {
+                gap: 20px;
+                margin-top: 60px;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+            .nav-links {
+                gap: 20px;
+            }
+            .nav-links a {
+                font-size: 1rem;
+            }
+        }
+
+        /* Main Content - Darsliklar */
+        .main-content {
+            max-width: 1400px;
+            margin: 140px auto 100px;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            text-align: center;
+            margin: 100px 0 80px;
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+                margin: 80px 0 60px;
+            }
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .grades-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .grade-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .grade-card:hover {
+            transform: translateY(-20px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .grade-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .grade-header h3 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .grade-header p {
+            opacity: 0.9;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .grade-header {
+                padding: 50px 30px;
+            }
+            .grade-header h3 {
+                font-size: 3rem;
+            }
+        }
+
+        .grade-content {
+            padding: 50px;
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .resource-item {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: var(--radius-md);
+            border-left: 8px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .resource-item:hover {
+            transform: translateX(20px);
+            background: rgba(255,107,0,0.1);
+        }
+
+        .resource-item h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .resource-item p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .resource-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .resource-btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .btn-pdf {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-pdf:hover {
+            background: #00b34a;
+            transform: translateY(-5px);
+        }
+
+        .btn-audio {
+            background: #ff0000;
+            color: white;
+        }
+
+        .btn-audio:hover {
+            background: #cc0000;
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .resource-item {
+                padding: 30px;
+            }
+            .resource-actions {
+                flex-direction: column;
+            }
+            .resource-btn {
+                justify-content: center;
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 150px 0;
+            background: linear-gradient(to bottom, var(--bg-dark), var(--bg-surface));
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 70px 40px;
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 6rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .feature-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                padding: 100px 0;
+            }
+            .feature-card {
+                padding: 50px 30px;
+            }
+            .feature-icon {
+                font-size: 4.5rem;
+            }
+            .feature-card h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-surface);
+            padding: 120px 0 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 80px;
+        }
+
+        .footer-col h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .social-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-15px) scale(1.15);
+        }
+
+        .telegram { background: #0088cc; }
+        .youtube { background: #ff0000; }
+        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .tiktok { background: #000; }
+
+        .copyright {
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 50px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .creator {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 900;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 100px 0 50px;
+            }
+            .footer-content {
+                gap: 60px;
+                padding: 0 20px;
+            }
+            .social-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Qor effekti -->
+    <script>
+        function createSnow() {
+            const snow = document.createElement('div');
+            snow.classList.add('snowflake');
+            const icons = ['❄', '❅', '❆', '✵', '✶', '✷', '✸', '✹'];
+            snow.innerText = icons[Math.floor(Math.random() * icons.length)];
+            snow.style.left = Math.random() * 100 + 'vw';
+            snow.style.animationDuration = Math.random() * 15 + 10 + 's';
+            snow.style.fontSize = (Math.random() * 0.8 + 0.8) + 'em';
+            
+            // Mobil uchun kamroq qor
+            if (window.innerWidth < 768) {
+                if (Math.random() > 0.3) return; // Faqat 30% qor chiqsin
+            }
+            
+            document.body.appendChild(snow);
+            setTimeout(() => snow.remove(), 25000);
+        }
+        
+        // Desktopda tezroq, mobil da sekinroq
+        const interval = window.innerWidth < 768 ? 800 : 400;
+        setInterval(createSnow, interval);
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Audio Darsliklar 2026</h1>
+            <p>O‘zbek adabiyoti darsliklarining eng sifatli audio va PDF versiyalari.<br>5-11 sinflar uchun bepul resurslar.</p>
+            <div class="hero-badges">
+                <div class="badge">100% Bepul</div>
+                <div class="badge">Yuqori Sifatli Audio</div>
+                <div class="badge">Rasmiy Darsliklar</div>
+                <div class="badge">Yangi 2026 yil</div>
+            </div>
+            <div class="cta-buttons">
+                <a href="#darsliklar" class="btn btn-primary">Darsliklarni Ko'rish</a>
+                <a href="https://t.me/Audio_Darsliklar_2026" target="_blank" class="btn btn-secondary">Telegram Kanal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Audio Darsliklar 2026</a>
+            <div class="nav-links">
+                <a href="#" class="active">Asosiy</a>
+                <a href="#darsliklar">Darsliklar</a>
+                <a href="#xususiyatlar">Xususiyatlar</a>
+                <a href="#aloqa">Aloqa</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Darsliklar bo'limi -->
+    <div class="main-content" id="darsliklar">
+        <h2 class="section-title" data-aos="fade-up">Sinflar bo'yicha darsliklar</h2>
+        
+        <div class="grades-grid">
+            <!-- 5-sinf -->
+            <div class="grade-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="grade-header">
+                    <h3>5-sinf</h3>
+                    <p>Ona tili va adabiyot</p>
+                </div>
+                <div class="grade-content">
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Adabiyot (2020)</h4>
+                            <p>Rasmiy darslik PDF formati</p>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1Z1boTGvU_YJNififVEZoQKjud_Y6pgJn/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot 1-qism (2024)</h4>
+                            <p>Yangi o'quv yili darsligi</p>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1jSRUQe9MFc2R5-PN9uJQHWNrz8lVuN6W/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot 2-qism (2024)</h4>
+                            <p>Yangi o'quv yili darsligi</p>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1jVmeeblozsW_4GCtr4mDT9IoEN8afaae/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6-sinf -->
+            <div class="grade-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="grade-header">
+                    <h3>6-sinf</h3>
+                    <p>Ona tili va adabiyot</p>
+                </div>
+                <div class="grade-content">
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Adabiyot 1-qism (2017)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1Ykm798qXa1sfSM36eRrp7HyISzz70y5A/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot 2-qism (2017)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1STCwjI_5L9K39-t8zcwoUrumdatYwBCs/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot (2022)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/11GnYT2jH2tZsllITrbIIGg7xR_jg2FHH/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7-sinf -->
+            <div class="grade-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="grade-header">
+                    <h3>7-sinf</h3>
+                    <p>Ona tili va adabiyot</p>
+                </div>
+                <div class="grade-content">
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Adabiyot (2017)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1xvF1D48PfKieZHQNgpXOQHv1ecCp485i/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot (2022)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/139jsOtyEA8yQCxQ_YjPxvp972SRqvzB5/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8-sinf -->
+            <div class="grade-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="grade-header">
+                    <h3>8-sinf</h3>
+                    <p>Audio + PDF darsliklar</p>
+                </div>
+                <div class="grade-content">
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Adabiyot (2019) - Audio + PDF</h4>
+                            <p>Professional o'qilgan audio darslar</p>
+                            <div class="resource-actions">
+                                <a href="https://youtube.com/playlist?list=PL8i6F9PI9IOp4yI0Ha_qIu_YBgLkZAhgq" target="_blank" class="resource-btn btn-audio">
+                                    <i class="fab fa-youtube"></i> Audio tinglash
+                                </a>
+                                <a href="https://drive.google.com/file/d/1QTjFnbFwiRzqL-avNEC35xobRiQk9B4O/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot (2025) - Audio + PDF</h4>
+                            <p>Yangi o'quv yili uchun tayyorlangan</p>
+                            <div class="resource-actions">
+                                <a href="https://youtube.com/playlist?list=PL8i6F9PI9IOpE8IsA8RISr46lD6GmCP_T" target="_blank" class="resource-btn btn-audio">
+                                    <i class="fab fa-youtube"></i> Audio tinglash
+                                </a>
+                                <a href="https://drive.google.com/file/d/1sNQ2l8b-Grv1P9NxhF6uK2bQBf5gAuq_/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9-sinf -->
+            <div class="grade-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="grade-header">
+                    <h3>9-sinf</h3>
+                    <p>Ona tili va adabiyot</p>
+                </div>
+                <div class="grade-content">
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Adabiyot (2019)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1KkGZ6b-324-Ci7Eca1T_fvv3uHsavFj7/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10-sinf -->
+            <div class="grade-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="grade-header">
+                    <h3>10-sinf</h3>
+                    <p>Ona tili va adabiyot</p>
+                </div>
+                <div class="grade-content">
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Adabiyot 1-qism (2017)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1y8hNlxFsFbeqLMScrISCkzRS8gQ3Bvff/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot 2-qism (2017)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1LaOtIOPnl5yMy6fagJP2ilcrpz6igG2i/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot (2022)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/19EToo-Pzz15BNTJyV6N1MSY4ONT-2Hb9/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11-sinf -->
+            <div class="grade-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="grade-header">
+                    <h3>11-sinf</h3>
+                    <p>Ona tili va adabiyot</p>
+                </div>
+                <div class="grade-content">
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Adabiyot 1-qism (2018)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/13hcVKZ0QMjuyDvTlwBL7WcRbqN7S0ypN/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <h4>Adabiyot 2-qism (2018)</h4>
+                            <div class="resource-actions">
+                                <a href="https://drive.google.com/file/d/1EY_hc46nEpXIMGiReMLx6Iwz19t576QR/view?usp=sharing" target="_blank" class="resource-btn btn-pdf">
+                                    <i class="fas fa-file-pdf"></i> PDF yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Xususiyatlar bo'limi -->
+        <div class="features" id="xususiyatlar">
+            <div class="main-content">
+                <h2 class="section-title" data-aos="fade-up">Nima uchun Audio Darsliklar 2026?</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">🎧</div>
+                        <h3>Professional Audio</h3>
+                        <p>Mutaxassis o'qituvchilar tomonidan sifatli o'qilgan audio darslar</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">📚</div>
+                        <h3>Rasmiy Darsliklar</h3>
+                        <p>O'zbekiston Respublikasi Xalq ta'limi vazirligi tasdiqlagan darsliklar</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">🆓</div>
+                        <h3>100% Bepul</h3>
+                        <p>Hech qanday to'lov va ro'yxatdan o'tish talab qilinmaydi</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobilga Mos</h3>
+                        <p>Telefon, planshet va kompyuterda qulay foydalanish</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Xavfsiz</h3>
+                        <p>Hech qanday reklama va shaxsiy ma'lumot talab qilinmaydi</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Tez Yuklanish</h3>
+                        <p>Oddiy va tez ishlaydigan platforma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="aloqa">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Audio Darsliklar 2026</h3>
+                <p>O'zbek adabiyoti darsliklarining audio va PDF versiyalari. Barcha huquqlar himoyalangan.</p>
+                <p class="creator">Yaratuvchi: Toshov Ozodbek</p>
+                <p>Email: ozodbektoshov0@gmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h3>Ijtimoiy tarmoqlar</h3>
+                <div class="social-links">
+                    <a href="https://t.me/Audio_Darsliklar_2026" target="_blank" class="social-btn telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/@audiodarsliklar2025" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/ozodbek_toshov007" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@ozodbek.toshov_uz" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Havolalar</h3>
+                <p><a href="#darsliklar">Darsliklar</a></p>
+                <p><a href="#xususiyatlar">Xususiyatlar</a></p>
+                <p><a href="https://t.me/Audio_Darsliklar_2026">Telegram kanal</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Audio Darsliklar 2026. Barcha huquqlar himoyalangan.</p>
+            <p>Yangi yilingiz muborak bo'lsin! 🎄✨</p>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
